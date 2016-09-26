@@ -4,7 +4,7 @@
 <body>
 <table>
 <tr> <td colspan="2" style="background-color:#FFA500;">
-<h1> Welcome to XXX Services!</h1>
+<h1> Welcome to Stuff Sharing Services!</h1>
 </td> </tr>
 
 

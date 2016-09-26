@@ -9,7 +9,7 @@
 
 <?php
 $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres
-password=10220911")
+password=12345678")
     or die('Could not connect: ' . pg_last_error());
 ?>
 
@@ -29,9 +29,9 @@ password=10220911")
 
 if(isset($_GET['formSubmit'])) 
 {
-    $query = "INSERT INTO Users VALUES('".$_GET['Email']."','".$_GET['Username']."','".$_GET['Password']."')";
+    $query = "INSERT INTO users VALUES('".$_GET['Email']."','".$_GET['Username']."','".$_GET['Password']."')";
     
-    echo "<b>SQL:   </b>".$query."<br><br>";
+    //echo "<b>SQL:   </b>".$query."<br><br>";
 
     $result = pg_query($query);
     //For now it only shows error message in SQL but does not explain what is causing the error to
