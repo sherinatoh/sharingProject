@@ -39,7 +39,6 @@ CREATE TABLE bid(
 	PRIMARY KEY(price, user, auctionID)
 );
 
-<<<<<<< HEAD
 /*
 //POSTGRESQL: working sql code 
 CREATE TABLE "user" (
@@ -83,7 +82,3 @@ CREATE TABLE bid (
 	PRIMARY KEY(price, userID, auctionID)
 );
 */
-
-
-=======
->>>>>>> 3501ef001ceac9024f6284d48dea4a3f8072b00d
