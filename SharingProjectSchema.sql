@@ -50,7 +50,7 @@ CREATE TABLE "user" (
 
 CREATE TABLE object (
 	productID INT PRIMARY KEY, 
-  owner VARCHAR(64) REFERENCES "user" (email) UNIQUE , 
+  owner VARCHAR(64) REFERENCES "user" (email), 
 	category VARCHAR(64) NOT NULL, CHECK (category='Electronics' OR category='Book' OR category='Clothing' OR category='Services'), 
 	itemName VARCHAR(64) NOT NULL,
 	price  FLOAT NOT NULL, CHECK (price >=0), 
