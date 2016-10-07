@@ -27,7 +27,7 @@ password=12345678")
 	<?php
 if(isset($_GET['formSubmit'])) 
 {
-    $query = "SELECT email, password FROM users WHERE email = '".$_GET['Email']."' AND password = '".$_GET['Password']."'";
+    $query = "SELECT email, password FROM user WHERE email = '".$_GET['Email']."' AND password = '".$_GET['Password']."'";
     
     echo "<b>SQL:   </b>".$query."<br><br>";
     $result = pg_query($query) or die('Search failed: ' . pg_last_error());
