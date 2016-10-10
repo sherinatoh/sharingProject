@@ -1,9 +1,9 @@
 <html>
-<head> <title>View items you have put up for rent!</title> </head>
+<head> <title>Your Items!</title> </head>
 <body>
     <table>
         <tr> <td colspan="2" style="background-color:#FFB6C1;">
-            <h1>Your Items!</h1>
+            <h1>View items you have put up for rent!</h1>
         </td> </tr>
 
         <?php
@@ -15,8 +15,8 @@
             <td style="background-color:#eeeeee;">
 
                 <?php
-
-                $query = "SELECT category, itemname, price FROM object WHERE owner='ellangovesali@gmail.com'";
+                $user = 'ellangovesali@gmail.com'; 
+                $query = "SELECT category, itemname, price FROM object WHERE owner ='".$user."' ";
                 $result = pg_query($query) or die('Query failed: ' . pg_last_error());
                 echo "<table border=\"1\" >
                 <col width=\"50%\">
