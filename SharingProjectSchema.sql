@@ -41,39 +41,6 @@ CREATE TABLE bid (
 	PRIMARY KEY(price, memberEmail, auctionID)
 );
 
-insert into auction values('01', '2016-12-25', null, '005', 'abc@gmail.com');
-
-insert into auction values ('02', '2016-12-31', null, '012', 'abc@gmail.com');
-insert into auction values ('03',  '2016-12-31', null, '011', 'test@gmail.com');
-insert into auction values ('04',   '2016-12-31', null, '010', 'vesaliE@gmail.com');
-insert into auction values ('05',  '2016-12-31', null, '009', 'turtle@gmail.com');
-insert into auction values ('06',  '2016-12-31', null, '008', 'moon@gmail.com');
-insert into auction values ('07',  '2016-12-31', null, '007', 'waow@gmail.com');
-insert into auction values ('08', '2016-12-31', null, '006', 'abc@gmail.com');
-
-insert into auction values ('09', '2016-12-31', null, '101', 'mchen@gmail.com');
-insert into auction values ('10',  '2016-12-31', null, '102', 'alphabet@gmail.com');
-insert into auction values ('11',   '2016-12-31', null, '103', 'mchen@gmail.com');
-insert into auction values ('12',  '2016-12-31', null, '104', 'turtle@gmail.com');
-insert into auction values ('13',  '2016-12-31', null, '105', 'moon@gmail.com');
-insert into auction values ('14',  '2016-12-31', null, '106', 'yeli@gmail.com');
-
-insert into auction values ('15', '2016-12-31', null, '201', 'turtle@gmail.com');
-insert into auction values ('16',  '2016-12-31', null, '202', 'turtle@gmail.com');
-insert into auction values ('17',   '2016-12-31', null, '203', 'waow@gmail.com');
-insert into auction values ('18',  '2016-12-31', null, '204', 'chicken@gmail.com');
-insert into auction values ('19',  '2016-12-31', null, '205', 'moon@gmail.com');
-insert into auction values ('20',  '2016-12-31', null, '206', 'mchen@gmail.com');
-
-
-insert into auction values ('201', 'Clothing', 'Turtleneck sweater', 'dont wear in singapore', '20.99', '2015-01-20', 'TRUE', 'turtle@gmail.com');
-insert into auction values ('202', 'Clothing', 'warm sweater', 'dont wear in singapore', '20.99', '2015-01-20', 'TRUE', 'turtle@gmail.com');
-insert into auction values ('203', 'Clothing', 'white T-shirt', 'very plain', '9.99', '2015-01-27', 'TRUE', 'waow@gmail.com');
-insert into auction values ('204', 'Clothing', 'Graphic Tee', 'very interesting graphics', '5.99', '2016-07-20', 'TRUE', 'chicken@gmail.com');
-insert into auction values ('205', 'Clothing', 'V-neck T-shirt', 'Plain but Ok.', '11.99', '2016-05-20', 'TRUE', 'moon@gmail.com');
-insert into auction values ('206', 'Clothing', 'Winter coat', 'no need for this in singapore', '80.99', '2016-09-25', 'TRUE', 'mchen@gmail.com');
-
-
 insert into member values ('abc@gmail.com', 'abc', '123', 'CCK');
 insert into member values ('Harken@gmail.com', 'har', '123', 'Yishun');
 insert into member values ('chicken@gmail.com', 'chicken', '123', 'Woodlands');
@@ -110,7 +77,37 @@ insert into object values ('204', 'Clothing', 'Graphic Tee', 'very interesting g
 insert into object values ('205', 'Clothing', 'V-neck T-shirt', 'Plain but Ok.', '11.99', '2016-05-20', 'TRUE', 'moon@gmail.com');
 insert into object values ('206', 'Clothing', 'Winter coat', 'no need for this in singapore', '80.99', '2016-09-25', 'TRUE', 'mchen@gmail.com');
 
+insert into auction values('01', '2016-12-25', null, '005', 'abc@gmail.com');
 
+insert into auction values ('02', '2016-12-31', null, '012', 'abc@gmail.com');
+insert into auction values ('03',  '2016-12-31', null, '011', 'test@gmail.com');
+insert into auction values ('04',   '2016-12-31', null, '010', 'vesaliE@gmail.com');
+insert into auction values ('05',  '2016-12-31', null, '009', 'turtle@gmail.com');
+insert into auction values ('06',  '2016-12-31', null, '008', 'moon@gmail.com');
+insert into auction values ('07',  '2016-12-31', null, '007', 'waow@gmail.com');
+insert into auction values ('08', '2016-12-31', null, '006', 'abc@gmail.com');
+
+insert into auction values ('09', '2016-12-31', null, '101', 'mchen@gmail.com');
+insert into auction values ('10',  '2016-12-31', null, '102', 'alphabet@gmail.com');
+insert into auction values ('11',   '2016-12-31', null, '103', 'mchen@gmail.com');
+insert into auction values ('12',  '2016-12-31', null, '104', 'turtle@gmail.com');
+insert into auction values ('13',  '2016-12-31', null, '105', 'moon@gmail.com');
+insert into auction values ('14',  '2016-12-31', null, '106', 'yeli@gmail.com');
+
+insert into auction values ('15', '2016-12-31', null, '201', 'turtle@gmail.com');
+insert into auction values ('16',  '2016-12-31', null, '202', 'turtle@gmail.com');
+insert into auction values ('17',   '2016-12-31', null, '203', 'waow@gmail.com');
+insert into auction values ('18',  '2016-12-31', null, '204', 'chicken@gmail.com');
+insert into auction values ('19',  '2016-12-31', null, '205', 'moon@gmail.com');
+insert into auction values ('20',  '2016-12-31', null, '206', 'mchen@gmail.com');
+
+
+insert into auction values ('201', 'Clothing', 'Turtleneck sweater', 'dont wear in singapore', '20.99', '2015-01-20', 'TRUE', 'turtle@gmail.com');
+insert into auction values ('202', 'Clothing', 'warm sweater', 'dont wear in singapore', '20.99', '2015-01-20', 'TRUE', 'turtle@gmail.com');
+insert into auction values ('203', 'Clothing', 'white T-shirt', 'very plain', '9.99', '2015-01-27', 'TRUE', 'waow@gmail.com');
+insert into auction values ('204', 'Clothing', 'Graphic Tee', 'very interesting graphics', '5.99', '2016-07-20', 'TRUE', 'chicken@gmail.com');
+insert into auction values ('205', 'Clothing', 'V-neck T-shirt', 'Plain but Ok.', '11.99', '2016-05-20', 'TRUE', 'moon@gmail.com');
+insert into auction values ('206', 'Clothing', 'Winter coat', 'no need for this in singapore', '80.99', '2016-09-25', 'TRUE', 'mchen@gmail.com');
 
 insert into loan values ('L0001', '2016-2-26', '2016-3-29', 'yeli@gmail.com', 'test@gmail.com', '011');
 insert into loan values ('L0002', '2016-2-29', '2016-7-9', 'mchen@gmail.com', 'moon@gmail.com', '008' );
