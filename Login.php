@@ -9,7 +9,7 @@
 
 <?php
 $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres
-password=12345678")
+password=postgres")
     or die('Could not connect: ' . pg_last_error());
 ?>
 
@@ -27,13 +27,15 @@ password=12345678")
 	<?php
 if(isset($_GET['formSubmit'])) 
 {
-    $query = "SELECT 'email', 'password' FROM user WHERE 'email' = '".$_GET['Email']."' AND 'password' = '".$_GET['Password']."'";
+    $query = "SELECT email, password FROM member WHERE email = '".$_GET['Email']."' AND password = '".$_GET['Password']."'";
     
     echo "<b>SQL:   </b>".$query."<br><br>";
     $result = pg_query($query) or die('Search failed: ' . pg_last_error());
 
 
     if (pg_num_rows($result) == 1) {
+        session_start();
+        $_SESSION['user'] = $_GET['Email'];
     	echo "true";
     	header("Location:BrowsingPage.php");
     	//Change page
