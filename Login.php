@@ -3,28 +3,40 @@
 
 <body>
 <table>
-<tr> <td colspan="2" style="background-color:#FFA500;">
-<h1>Please enter your email and password</h1>
+<tr> <td colspan="2" style="background-color:#6666C1;">
+<h1 style="font-size:70px; color:#FFF8DC">Login</h1>
 </td> </tr>
 
 <?php
 $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres
-password=postgres")
+password=10220911")
     or die('Could not connect: ' . pg_last_error());
+?>
+
+<?php
+    ob_start();
+    session_start();
+
+    if ( isset($_SESSION['user'])!="" ) {
+        header("Location: Homepage.php");
+        exit;
+    }
 ?>
 
 <tr>
 <td style="background-color:#eeeeee;">
 <form>
 
-	Email: <input type="text" name="Email" id="Email">
-    Password: <input type="text" name="Password" id="Password">
+	<label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Email: </span><input style="float:right; display:inline" type="text" name="Email" id="Email"></label> <br>
+
+    <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Password: </span><input style="float:right; display:inline" type="text" name="Password" id="Password"></label> <br>
 
     <input type="submit" name="formSubmit" value="Login" >
         
 </form>
 	
 	<?php
+
 if(isset($_GET['formSubmit'])) 
 {
     $query = "SELECT email, password FROM member WHERE email = '".$_GET['Email']."' AND password = '".$_GET['Password']."'";
@@ -34,10 +46,9 @@ if(isset($_GET['formSubmit']))
 
 
     if (pg_num_rows($result) == 1) {
-        session_start();
-        $_SESSION['user'] = $_GET['Email'];
     	echo "true";
-    	header("Location:BrowsingPage.php");
+        $_SESSION['user'] = $_GET['Email'];
+    	header("Location:Homepage.php");
     	//Change page
     	exit;
     } else {
@@ -47,13 +58,14 @@ if(isset($_GET['formSubmit']))
     pg_free_result($result);
 }
 ?>
+
 </td> </tr>
 	<?php
 	pg_close($dbconn);
 	?>
 
 <tr>
-<td colspan="2" style="background-color:#FFA500; text-align:center;"> Copyright &#169; CS2102
+<td colspan="2" style="background-color:#6666C1; color:#FFF8DC; text-align:center; margin-top: 10px; padding: 10px"> Copyright &#169; VYMMS
 </td> </tr>
 </table>
 
