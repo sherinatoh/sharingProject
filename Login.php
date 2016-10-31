@@ -32,15 +32,15 @@ password=10220911")
     <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Password: </span><input style="float:right; display:inline" type="text" name="Password" id="Password"></label> <br>
 
     <input type="submit" name="formSubmit" value="Login" >
-        
+
 </form>
-	
+
 	<?php
 
-if(isset($_GET['formSubmit'])) 
+if(isset($_GET['formSubmit']))
 {
     $query = "SELECT email, password FROM member WHERE email = '".$_GET['Email']."' AND password = '".$_GET['Password']."'";
-    
+
     echo "<b>SQL:   </b>".$query."<br><br>";
     $result = pg_query($query) or die('Search failed: ' . pg_last_error());
 
@@ -54,7 +54,7 @@ if(isset($_GET['formSubmit']))
     } else {
     	echo "Wrong Password!";
     }
-    
+
     pg_free_result($result);
 }
 ?>
@@ -64,8 +64,12 @@ if(isset($_GET['formSubmit']))
 	pg_close($dbconn);
 	?>
 
+<div class="copyright">
+    Copyright &#169; VYMMS
+</div>
 <tr>
-<td colspan="2" style="background-color:#6666C1; color:#FFF8DC; text-align:center; margin-top: 10px; padding: 10px"> Copyright &#169; VYMMS
+<td colspan="2" style="background-color:#6666C1; color:#FFF8DC; text-align:center; margin-top: 10px; padding: 10px"> 
+
 </td> </tr>
 </table>
 

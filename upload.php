@@ -5,7 +5,7 @@ $target_dir = "img/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-$currObjectID = 20;
+;
 // Check if image file is a actual image or fake image
 if(isset($_POST["formSubmit"])) {
 
@@ -13,12 +13,15 @@ if(isset($_POST["formSubmit"])) {
     if($check !== false) {
         echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
+        $target_file = $target_dir . crc32($_POST['category'].$_POST['itemName'].$_POST['description'].$_POST['availableDate']."jpg");
+        $currObjectID = crc32($_POST['category'].$_POST['itemName'].$_POST['description'].$_POST['availableDate']);
 
         $query = "INSERT INTO object VALUES('".$currObjectID."', '".$_POST['category']."','".$_POST['itemName']."','".$_POST['description']."','".$_POST['price']."','".$_POST['availableDate']."','".$_POST['availability']."')";
 //echo "<b>SQL:   </b>".$query."<br><br>";
-        $currObjectID++;
-        echo $query;
+        echo $query . "\n";
+        echo "FUK";
         $result = pg_query($query) or die('Query failed: ' . pg_last_error());
+        echo $currObjectID;
         if(!result){
             echo "Please enter all fields";
             $uploadOk = 0;
