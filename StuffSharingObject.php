@@ -11,7 +11,7 @@
         ob_start(); 
         session_start(); 
         
-        $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=cs2102")
+        $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=12345678")
         or die('Could not connect: HERE' . pg_last_error());
         
         ?>
@@ -33,7 +33,7 @@
                 if(isset($_GET['formSubmit']))
                 {   
                     $_SESSION['productID'] = $_SESSION['productID'] + 1; 
-                    $query = "INSERT INTO object VALUES('".$_GET['category']."','".$_GET['itemName']."','".$_GET['description']."','".$_GET['price']."','".$_GET['location']."','".$_GET['availableDate']."','".$_GET['availability']."', '".$_SESSION['productID']"')";
+                    $query = "INSERT INTO object VALUES('".$_GET['category']."','".$_GET['itemName']."','".$_GET['description']."','".$_GET['price']."','".$_GET['location']."','".$_GET['availableDate']."','".$_GET['availability']."')";
     //echo "<b>SQL:   </b>".$query."<br><br>";
                     $result = pg_query($query) or die('Query failed: ' . pg_last_error());
                     if(!result){
