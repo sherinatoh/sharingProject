@@ -1,5 +1,5 @@
 <?php
-$dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=cs2102")
+$dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=12345678")
 or die('Could not connect: HERE' . pg_last_error());
 $target_dir = "img/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);

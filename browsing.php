@@ -9,7 +9,7 @@
     <body>
 
         <?php
-        $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=cs2102")
+        $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=12345678")
             or die('Could not connect: ' . pg_last_error());
         ?>
 
