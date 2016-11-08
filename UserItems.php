@@ -17,12 +17,11 @@
     ob_start();
     session_start();
 
-    if ( isset($_SESSION['user'])!="" ) {
-        header("Location: Login.php");
+    if ( isset($_SESSION['user'])=="" ) {
+        header("Location: FirstPage.php");
         exit;
     }
 ?>
-//style="background-color:#c1c1c1; border:solid;"
         <tr>
             <td class="sect3">
 
