@@ -1,19 +1,23 @@
 <html>
-<head> <title>WELCOME!</title> </head>
+<head> 
+    <title>WELCOME!</title> 
+    <link href="styles.css" media="all" rel="Stylesheet" type="text/css"/>
+</head>
 
 <body>
-<table>
-<tr> <td colspan="2" style="background-color:#6666C1;">
-<h1 style="font-size:70px; color:#FFF8DC">Login</h1>
-</td> </tr>
 
-<?php
-$dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres
-password=12345678")
+    <div class="sect1">
+        <h1>Login</h1>
+    </div>
+
+
+    <?php
+    $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres
+        password=10220911")
     or die('Could not connect: ' . pg_last_error());
-?>
+    ?>
 
-<?php
+    <?php
     ob_start();
     session_start();
 
@@ -21,10 +25,9 @@ password=12345678")
         header("Location: AccountPage.php");
         exit;
     }
-?>
+    ?>
 
-<tr>
-<td style="background-color:#eeeeee;">
+<!--
 <form>
 
 	<label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Email: </span><input style="float:right; display:inline" type="text" name="Email" id="Email"></label> <br>
@@ -34,8 +37,14 @@ password=12345678")
     <input type="submit" name="formSubmit" value="Login" >
 
 </form>
+-->
+<div class="sect2">
+   <input type="text" name="Email" placeholder="Email" style="margin-top:5px"> <br>
+   <input type="password" name="Password" placeholder="Password" style="margin-top:5px"> <br>
+</div>
+ <input type="submit" name="formSubmit" value="Login" >
 
-	<?php
+<?php
 
 if(isset($_GET['formSubmit']))
 {
@@ -48,9 +57,9 @@ if(isset($_GET['formSubmit']))
     if (pg_num_rows($result) == 1) {
     	echo "true";
         $_SESSION['user'] = $_GET['Email'];
-    	header("Location:AccountPage.php");
+        header("Location:Homepage.php");
     	//Change page
-    	exit;
+        exit;
     } else {
     	echo "Wrong Password!";
     }
@@ -60,18 +69,11 @@ if(isset($_GET['formSubmit']))
 ?>
 
 </td> </tr>
-	<?php
-	pg_close($dbconn);
-	?>
+<?php
+pg_close($dbconn);
+?>
 
-<div class="copyright">
-    Copyright &#169; VYMMS
-</div>
-<tr>
-<td colspan="2" style="background-color:#6666C1; color:#FFF8DC; text-align:center; margin-top: 10px; padding: 10px"> 
-
-</td> </tr>
-</table>
+ <p style="clear:both">Copyright &#169; VYMMS</p>
 
 </body>
 </html>
