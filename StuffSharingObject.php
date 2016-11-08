@@ -1,12 +1,19 @@
 <html>
-<head> <title>Stuff Sharing Catalog</title> </head>
+<head> 
+    <title>Stuff Sharing Catalog</title> 
+    <link href="styles.css" media="all" rel="Stylesheet" type="text/css"/>
+</head>
 
 <body>
-    <a href="browsing.php"><button>Go to Browsing Page</button></a>
+   
     <table>
-        <tr> <td colspan="5" style="background-color:#AAA500;">
-            <h1> Stuff Sharing</h1>
-        </td> </tr>
+   
+   
+         <div class="sect1">
+            <h1>Add Your Item!</h1>
+            </div>
+
+   
         <?php
         ob_start(); 
         session_start(); 
@@ -16,17 +23,34 @@
         
         ?>
 
-        <tr>
-            <td style="background-color:#eeeeee;">
+        
+            <div class="sect2">
+            
                 <form action="upload.php" method="post" enctype="multipart/form-data">
-                    Category: <input type="text" name="category" id="category"><br/>
-                    Item Name: <input type="text" name="itemName" id="itemName"><br/>
-                    Description: <input type="text" name="description" id="description"><br/>
-                    Price: <input type="text" name="price" id="price"><br/>
-                    Location: <input type="text" name="location" id="location"> <br/>
-                    Available Date: <input type="text" name="availableDate" id="availableDate"> <br/>
-                    Availability: <input type="text" name="availability" id="availability"> <br/>
-                    Image: <input type="file" name="fileToUpload" id="fileToUpload">
+                    <div class="sect2">
+                        <input type="text" name="category" id="category" placeholder="Category"><br/>
+                    </div>
+                    <div class="sect2">
+                     <input type="text" name="itemName" id="itemName" placeholder="Item Name"><br/>
+                    </div>
+                    <div class="sect2">
+                        <input type="text" name="description" id="description" placeholder="Description"><br/>
+                    </div>
+                    <div class="sect2">
+                     <input type="text" name="price" id="price" placeholder="Price"><br/>
+                    </div>
+                    <div class="sect2">
+                     <input type="text" name="location" id="location" placeholder="Location"> <br/>
+                    </div>
+                    <div class="sect2">
+                     <input type="text" name="availableDate" id="availableDate" placeholder="Available Date"> <br/>
+                    </div>
+                    <div class="sect2">
+                     <input type="text" name="availability" id="availability" placeholder="Availability"> <br/>
+                    </div>
+                    <div class="sect2">
+                     <input type="file" name="fileToUpload" id="fileToUpload">
+                    </div>
                     <input type="submit" name="formSubmit" value="Add Item!" >
                 </form>
                 <?php
@@ -46,14 +70,13 @@
                 }
                 ?>
 
-            </td> </tr>
             <?php
             pg_close($dbconn);
             ?>
             <tr>
-                <td colspan="2" style="background-color:#FFA500; text-align:center;"> Copyright &#169; CS2102 Project
+                <td> Copyright &#169; VYMMS
                 </td> </tr>
             </table>
-
+             <a href="browsing.php"><button>Go to Browsing Page</button></a>
         </body>
         </html>

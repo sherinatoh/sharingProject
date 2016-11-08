@@ -18,7 +18,7 @@ password=12345678")
     session_start();
 
     if ( isset($_SESSION['user'])!="" ) {
-        header("Location: Homepage.php");
+        header("Location:AccountPage.php");
         exit;
     }
 ?>

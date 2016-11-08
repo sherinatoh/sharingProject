@@ -20,7 +20,7 @@
 
 
         <div class="sect2">
-            <a href="stuffSharing.php"><button type="button">Add Item</button></a><br>
+            <a href="StuffSharingObject.php"><button type="button">Add Item</button></a><br>
 
             <input type="text" name="searchbar" placeholder="What do you want?"/>
             <!--search bar and other crap included here -->
