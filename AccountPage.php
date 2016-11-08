@@ -43,5 +43,6 @@
 				<td colspan="2"> Copyright &#169; VYMMS
 				</td> </tr>
 			</table>
+			<a href="Logout.php?logout">LOGOUT</a>
 		</body>
 		</html>
