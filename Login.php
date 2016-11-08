@@ -18,7 +18,7 @@ password=12345678")
     session_start();
 
     if ( isset($_SESSION['user'])!="" ) {
-        header("Location: FirstPage.php");
+        header("Location: AccountPage.php");
         exit;
     }
 ?>
@@ -48,7 +48,7 @@ if(isset($_GET['formSubmit']))
     if (pg_num_rows($result) == 1) {
     	echo "true";
         $_SESSION['user'] = $_GET['Email'];
-    	header("Location:Homepage.php");
+    	header("Location:AccountPage.php");
     	//Change page
     	exit;
     } else {
