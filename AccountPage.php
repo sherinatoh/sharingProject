@@ -40,7 +40,7 @@
 			}
 			?>
 			<tr>
-				<td colspan="2" style="background-color:#6666C1; text-align:center;"> Copyright &#169; CS2102 Group 9
+				<td colspan="2"> Copyright &#169; VYMMS
 				</td> </tr>
 			</table>
 		</body>
