@@ -1,12 +1,12 @@
 <html>
 <head> 
     <title>Stuff Sharing Catalog</title> 
-    <link href="styles.css" media="all" rel="Stylesheet" type="text/css"/>
+    <link href="styleAddItem.css" media="all" rel="Stylesheet" type="text/css"/>
 </head>
 
 <body>
    
-    <table>
+    <table >
    
    
          <div class="sect1">
