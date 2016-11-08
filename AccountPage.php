@@ -43,5 +43,6 @@
 				<td colspan="2" style="background-color:#6666C1; text-align:center;"> Copyright &#169; CS2102 Group 9
 				</td> </tr>
 			</table>
+			<a href="Logout.php?logout">LOGOUT</a>
 		</body>
 		</html>
