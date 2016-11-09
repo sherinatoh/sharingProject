@@ -47,34 +47,34 @@
         ?>
 
         
-            <div class="sect2">
+            <div class="sect3">
             
                 <form action="upload.php" method="post" enctype="multipart/form-data">
-                    <div class="sect2">
-                        <input type="text" name="category" id="category" placeholder="Category"><br/>
+                    <div class="sect3">
+                        <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Category: </span><input style="float:right; display:inline" type="text" name="category" id="category"></label> <br>
                     </div>
-                    <div class="sect2">
-                     <input type="text" name="itemName" id="itemName" placeholder="Item Name"><br/>
+                    <div class="sect3">
+                      <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Item Name:</span> <input  style="float:right; display:inline" type="text" name="itemName" id="itemName"></label><br/>
                     </div>
-                    <div class="sect2">
-                        <input type="text" name="description" id="description" placeholder="Description"><br/>
+                    <div class="sect3">
+                         <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Description:</span> <input style="float:right; display:inline" type="text" name="description" id="description"></label><br/>
                     </div>
-                    <div class="sect2">
-                     <input type="text" name="price" id="price" placeholder="Price"><br/>
+                    <div class="sect3">
+                      <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Price:</span> <input style="float:right; display:inline" type="text" name="price" id="price"></label><br/>
                     </div>
-                    <div class="sect2">
-                     <input type="text" name="location" id="location" placeholder="Location"> <br/>
+                    <div class="sect3">
+                      <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Location:</span> <input style="float:right; display:inline" type="text" name="location" id="location"> </label><br/>
                     </div>
-                    <div class="sect2">
-                     <input type="text" name="availableDate" id="availableDate" placeholder="Available Date"> <br/>
+                    <div class="sect3">
+                      <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Available Date:</span> <input style="float:right; display:inline" type="text" name="availableDate" id="availableDate"> </label><br/>
                     </div>
-                    <div class="sect2">
-                     <input type="text" name="availability" id="availability" placeholder="Availability"> <br/>
+                    <div class="sect3">
+                      <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Availability:</span> <input style="float:right; display:inline" type="text" name="availability" id="availability"></label> <br/>
                     </div>
-                    <div class="sect2">
-                     <input type="file" name="fileToUpload" id="fileToUpload">
+                    <div class="sect3">
+                     <input type="file" name="fileToUpload" id="fileToUpload"><br>
                     </div>
-                    <input type="submit" name="formSubmit" value="Add Item!" >
+                    <input type="submit" name="formSubmit" value="Add Item!" ><br>
                 </form>
                 <?php
                 if(isset($_GET['formSubmit']))
@@ -96,10 +96,11 @@
             <?php
             pg_close($dbconn);
             ?>
-            <tr>
-                <td> Copyright &#169; VYMMS
-                </td> </tr>
+            
             </table>
-             <a href="browsing.php"><button>Go to Browsing Page</button></a>
+             <a href="browsing.php"><button>Go to Browsing Page</button></a><br>
+            
+                <p>Copyright &#169; VYMMS
+                </p> 
         </body>
         </html>

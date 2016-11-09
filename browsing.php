@@ -34,7 +34,7 @@
         <?php
         $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=cs2102")
             or die('Could not connect: ' . pg_last_error());
-        $currObjectID = 20;
+        //$currObjectID = 20;
         ?>
 
         <div class="sect1">
@@ -121,10 +121,12 @@
 
         </div>
 
+          <a href="AccountPage.php"><button>Go to Account Page</button></a><br>
+
+
         <div class="copyright">
             Copyright &#169; VYMMS
         </div>
-
 
 
         <script src="./jquery-2.1.3.min/index.js"></script>
