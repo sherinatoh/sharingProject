@@ -121,10 +121,12 @@
 
         </div>
 
+          <a href="AccountPage.php"><button>Go to Account Page</button></a><br>
+
+
         <div class="copyright">
             Copyright &#169; VYMMS
         </div>
-
 
 
         <script src="./jquery-2.1.3.min/index.js"></script>
