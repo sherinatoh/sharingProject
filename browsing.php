@@ -5,11 +5,34 @@
         <title>Sharing Project</title>
         <link href="styles.css" media="all" rel="Stylesheet" type="text/css"/>
 
+        <script>
+        function showResult(str) {
+          if (str.length==0) {
+            document.getElementById("searchbar").innerHTML="";
+            document.getElementById("searchbar").style.border="0px";
+            return;
+          }
+          if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+          } else {  // code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+          }
+          xmlhttp.onreadystatechange=function() {
+            if (this.readyState==4 && this.status==200) {
+              document.getElementById("searchbar").innerHTML=this.responseText;
+              document.getElementById("searchbar").style.border="1px solid #A5ACB2";
+            }
+          }
+          xmlhttp.open("GET","search.php?q="+str,true);
+          xmlhttp.send();
+        }
+        </script>
     </head>
     <body>
 
         <?php
-        $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=12345678")
+        $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=cs2102")
             or die('Could not connect: ' . pg_last_error());
         $currObjectID = 20;
         ?>
@@ -21,8 +44,10 @@
 
         <div class="sect2">
             <a href="stuffSharing.php"><button type="button">Add Item</button></a><br>
-
-            <input type="text" name="searchbar" placeholder="What do you want?"/>
+            <form>
+                <input type="text" name="searchbar" placeholder="What do you want?" onkeyup="showResult(this.value)"/>
+                <div id="searchbar"></div>
+            </form>
             <!--search bar and other crap included here -->
         </div>
 
@@ -31,14 +56,18 @@
             <ul>
 
 
-            <?php $query = 'SELECT o.category, o.itemname, o.description, o.price, o.owner, a.auctionid, b.price
-            FROM object o, auction a, bid b
-            WHERE a.objectid = o.productid AND b.auctionid = a.auctionid AND a.objectid = o.productid
-            AND b.price >=ALL (SELECT bi.price from bid bi WHERE bi.auctionid = a.auctionid)
-            UNION
-            SELECT o.category, o.itemname, o.description, o.price, o.owner, a.auctionid, b.price
-            FROM object o, auction a, bid b
-            WHERE a.objectid = o.productid AND b.auctionid = a.auctionid AND a.objectid = o.productid';
+            <?php $query = 'SELECT distinct o.category, o.itemname, o.description, o.price, o.owner, a.auctionid
+            from object o, auction a where o.availability=TRUE and a.objectid = o.productid';
+
+
+            //'SELECT distinct o.category, o.itemname, o.description, o.price, o.owner, a.auctionid, b.price
+            //FROM object o, auction a, bid b group by o.itemname';
+            // -- WHERE a.objectid = o.productid AND b.auctionid = a.auctionid AND a.objectid = o.productid
+            // -- AND b.price >=ALL (SELECT bi.price from bid bi WHERE bi.auctionid = a.auctionid)
+            // -- UNION
+            // -- SELECT o.category, o.itemname, o.description, o.price, o.owner, a.auctionid, b.price
+            // -- FROM object o, auction a, bid b
+            // -- WHERE a.objectid = o.productid AND b.auctionid = a.auctionid AND a.objectid = o.productid';
 
 //this needs to be changed in order to show the maximum bid price at the moment instead of just price.
             $result = pg_query($query) or die('Query failed: ' . pg_last_error());
@@ -70,7 +99,7 @@
                 if(!insertResult){
                     echo "we dun fucked up";
                 } else {
-                    header("Location:welcome.php");
+                    header("Location:browsing.php");
                     exit;
                 }
             }
