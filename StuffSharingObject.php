@@ -12,15 +12,17 @@
          <div class="sect1">
             <h1>Add Your Item!</h1>
             </div>
-
-   
         <?php
         ob_start(); 
         session_start(); 
         
         $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=12345678")
         or die('Could not connect: HERE' . pg_last_error());
-        
+         if ( isset($_SESSION['user'])=="" ) {
+            header("Location: FirstPage.php");
+            exit;
+        }
+
         ?>
 
         
@@ -57,7 +59,7 @@
                 if(isset($_GET['formSubmit']))
                 {   
                     $_SESSION['productID'] = $_SESSION['productID'] + 1; 
-                    $query = "INSERT INTO object VALUES('".$_GET['category']."','".$_GET['itemName']."','".$_GET['description']."','".$_GET['price']."','".$_GET['location']."','".$_GET['availableDate']."','".$_GET['availability']."')";
+                    $query = "INSERT INTO object VALUES('".$_GET['category']."','".$_GET['itemName']."','".$_GET['description']."','".$_GET['price']."','".$_GET['location']."','".$_GET['availableDate']."','".$_GET['availability']."', '".$_SESSION['user']."')";
     //echo "<b>SQL:   </b>".$query."<br><br>";
                     $result = pg_query($query) or die('Query failed: ' . pg_last_error());
                     if(!result){
