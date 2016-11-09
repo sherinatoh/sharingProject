@@ -27,17 +27,18 @@
      <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Location: </span><input style="float:right; display:inline" type="text" name="Location" id="Location"> </label><br>
 
    -->
+   <form>
+     <div class="sect2">
+       <input type="text" name="Username" placeholder="Username" style="margin-top:5px"> <br>
+       <input type="text" name="Email" placeholder="Email" style="margin-top:5px"> <br>
+       <input type="password" name="Password" placeholder="Password" style="margin-top:5px"> <br>
+       <input type="text" name="Location" placeholder="Location" style="margin-top:5px"> <br>
+     </div>
 
-   <div class="sect2">
-     <input type="text" name="Username" placeholder="Username" style="margin-top:5px"> <br>
-     <input type="text" name="Email" placeholder="Email" style="margin-top:5px"> <br>
-     <input type="password" name="Password" placeholder="Password" style="margin-top:5px"> <br>
-     <input type="text" name="Location" placeholder="Location" style="margin-top:5px"> <br>
-   </div>
 
-
-   <input type="submit" name="formSubmit" value="Create Account" >
-   <input type="button" value="Login Now!" onClick="document.location.href='Login.php'"/>
+     <input type="submit" name="formSubmit" value="Create Account" >
+     <input type="button" value="Login Now!" onClick="document.location.href='Login.php'"/>
+   </form>
 
 
    <?php
