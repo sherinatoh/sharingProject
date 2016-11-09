@@ -1,6 +1,7 @@
 <?php
 $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=10220911")
 or die('Could not connect: HERE' . pg_last_error());
+// FORYELI: start this part for login:
 ob_start();
 session_start();
 if(!isset($_SESSION['user'])){
@@ -8,6 +9,8 @@ if(!isset($_SESSION['user'])){
     header("Location: /Login.php");
     exit();
 }
+//END login
+
 $target_dir = "img/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -27,7 +30,9 @@ if(isset($_POST["formSubmit"])) {
             $target_file = "default.jpg";
             $uploadOK = 0;
         }
-        $date = date('Y-m-d');
+        $date = date('Y-m-d'); // FOR YELI: date for insert object
+
+        // FOR YELI: Insert object query changed, changes: date, availability, user email
         $query = "INSERT INTO object VALUES('".$currObjectID."',
         '".$_POST['category']."','".$_POST['itemName']."','".$_POST['description']."',
         '".$_POST['price']."','".$date."','TRUE','".$target_file."','".$_SESSION['user']."')";
