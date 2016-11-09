@@ -32,9 +32,15 @@
     <body>
 
         <?php
-        $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=cs2102")
+        $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=12345678")
             or die('Could not connect: ' . pg_last_error());
         //$currObjectID = 20;
+              session_start();
+      $user = $_SESSION['user'];
+       if ( isset($_SESSION['user'])=="" ) {
+            header("Location: FirstPage.php");
+            exit;
+        }
         ?>
 
         <div class="sect1">
@@ -92,9 +98,9 @@
 
             }
             if(isset($_GET['bidSubmit'])){
-                echo "auction ID : ".$_GET['auctionID']."";
+                //echo "auction ID : ".$_GET['auctionID']."";
 
-                $insertQuery = "INSERT INTO bid values('".$_GET['bidPrice']."', 'mchen@gmail.com', '".$_GET['auctionID']."');";
+                $insertQuery = "INSERT INTO bid values('".$_GET['bidPrice']."', '".$_SESSION['user']."', '".$_GET['auctionID']."');";
 
                 $insertResult = pg_query($insertQuery) or die('query fucked up: '. pg_last_error());
                 if(!insertResult){

@@ -62,9 +62,9 @@
                     <div class="sect3">
                       <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Price:</span> <input style="float:right; display:inline" type="text" name="price" id="price"></label><br/>
                     </div>
-                    <div class="sect3">
+                    <!--div class="sect3">
                       <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Location:</span> <input style="float:right; display:inline" type="text" name="location" id="location"> </label><br/>
-                    </div>
+                    </div-->
                     <div class="sect3">
                       <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Available Date:</span> <input style="float:right; display:inline" type="text" name="availableDate" id="availableDate"> </label><br/>
                     </div>
