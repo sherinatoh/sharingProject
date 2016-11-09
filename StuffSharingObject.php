@@ -47,31 +47,31 @@
         ?>
 
         
-            <div class="sect2">
+            <div class="sect3">
             
                 <form action="upload.php" method="post" enctype="multipart/form-data">
-                    <div class="sect2">
-                        <input type="text" name="category" id="category" placeholder="Category"><br/>
+                    <div class="sect3">
+                        <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Category: </span><input type="text" name="category" id="category"></label> <br>
                     </div>
-                    <div class="sect2">
-                     <input type="text" name="itemName" id="itemName" placeholder="Item Name"><br/>
+                    <div class="sect3">
+                      <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Item Name:</span> <input type="text" name="itemName" id="itemName"></label><br/>
                     </div>
-                    <div class="sect2">
-                        <input type="text" name="description" id="description" placeholder="Description"><br/>
+                    <div class="sect3">
+                         <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Description:</span> <input type="text" name="description" id="description"></label><br/>
                     </div>
-                    <div class="sect2">
-                     <input type="text" name="price" id="price" placeholder="Price"><br/>
+                    <div class="sect3">
+                      <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Price:</span> <input type="text" name="price" id="price"></label><br/>
                     </div>
-                    <div class="sect2">
-                     <input type="text" name="location" id="location" placeholder="Location"> <br/>
+                    <div class="sect3">
+                      <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Location:</span> <input type="text" name="location" id="location"> </label><br/>
                     </div>
-                    <div class="sect2">
-                     <input type="text" name="availableDate" id="availableDate" placeholder="Available Date"> <br/>
+                    <div class="sect3">
+                      <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Available Date:</span> <input type="text" name="availableDate" id="availableDate"> </label><br/>
                     </div>
-                    <div class="sect2">
-                     <input type="text" name="availability" id="availability" placeholder="Availability"> <br/>
+                    <div class="sect3">
+                      <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Availability:</span> <input type="text" name="availability" id="availability"></label> <br/>
                     </div>
-                    <div class="sect2">
+                    <div class="sect3">
                      <input type="file" name="fileToUpload" id="fileToUpload">
                     </div>
                     <input type="submit" name="formSubmit" value="Add Item!" >
@@ -96,10 +96,11 @@
             <?php
             pg_close($dbconn);
             ?>
-            <tr>
+            
+            </table>
+             <a href="browsing.php"><button>Go to Browsing Page</button></a></br>
+             <tr>
                 <td> Copyright &#169; VYMMS
                 </td> </tr>
-            </table>
-             <a href="browsing.php"><button>Go to Browsing Page</button></a>
         </body>
         </html>
