@@ -43,11 +43,12 @@
 
 
         <div class="sect2">
-            <a href="stuffSharing.php"><button type="button">Add Item</button></a><br>
+            <a href="stuffSharingObject.php"><button type="button">Add Item</button></a><br>
             <form>
                 <input type="text" name="searchbar" placeholder="What do you want?" onkeyup="showResult(this.value)"/>
                 <div id="searchbar"></div>
             </form>
+
             <!--search bar and other crap included here -->
         </div>
 

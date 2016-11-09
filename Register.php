@@ -1,66 +1,73 @@
 <html>
-<head> <title>WELCOME!</title> </head>
+<head> 
+  <title>WELCOME!</title>
+  <link href="styles.css" media="all" rel="Stylesheet" type="text/css"/>
+</head>
 
 <body>
-    <table>
-        <tr> <td colspan="2" style="background-color:#6666C1;">
-            <h1 style="font-size:70px; color:#FFF8DC">Registration</h1>
-        </td> </tr>
+  <table>
 
-        <?php
-        $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=12345678")
-        or die('Could not connect: ' . pg_last_error());
-        ?>
+    <h1 class="sect1">Registration</h1>
 
-        <tr>
-            <td style="background-color:#eeeeee;">
-                <form>
-                    <div style="width:300px">
 
-                       <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Username:</span><input style="float:right; display:inline" type="text" name="Username" id="Username"></label><br>
-                      
-                       <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Email: </span><input style="float:right; display:inline" type="text" name="Email" id="Email"></label> <br>
+    <?php
+    $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=10220911")
+    or die('Could not connect: ' . pg_last_error());
+    ?>
+    <!--
 
-                       <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Password: </span><input style="float:right; display:inline" type="text" name="Password" id="Password"></label> <br>
+    <div style="width:300px">
 
-                       <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Location: </span><input style="float:right; display:inline" type="text" name="Location" id="Location"> </label><br>
+     <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Username:</span><input style="float:right; display:inline" type="text" name="Username" id="Username"></label><br>
 
-                   </div>
+     <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Email: </span><input style="float:right; display:inline" type="text" name="Email" id="Email"></label> <br>
 
-                   <input type="submit" name="formSubmit" value="Create Account" >
-                   <input type="button" value="Login Now!" onClick="document.location.href='Login.php'"/>
-               </form>
+     <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Password: </span><input style="float:right; display:inline" type="password" name="Password" id="Password"></label> <br>
 
-               <?php
+     <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Location: </span><input style="float:right; display:inline" type="text" name="Location" id="Location"> </label><br>
 
-               if(isset($_GET['formSubmit'])) 
-               {
-                $query = "INSERT INTO member VALUES('".$_GET['Email']."','".$_GET['Username']."','".$_GET['Password']."','".$_GET['Location']."')";
+   -->
+   <form>
+     <div class="sect2">
+       <input type="text" name="Username" placeholder="Username" style="margin-top:5px"> <br>
+       <input type="text" name="Email" placeholder="Email" style="margin-top:5px"> <br>
+       <input type="password" name="Password" placeholder="Password" style="margin-top:5px"> <br>
+       <input type="text" name="Location" placeholder="Location" style="margin-top:5px"> <br>
+     </div>
 
-                echo "<b>SQL:   </b>".$query."<br><br>";
 
-                $result = pg_query($query);
+     <input type="submit" name="formSubmit" value="Create Account" >
+     <input type="button" value="Login Now!" onClick="document.location.href='Login.php'"/>
+   </form>
+
+
+   <?php
+
+   if(isset($_GET['formSubmit'])) 
+   {
+    $query = "INSERT INTO member VALUES('".$_GET['Email']."','".$_GET['Username']."','".$_GET['Password']."','".$_GET['Location']."')";
+
+    echo "<b>SQL:   </b>".$query."<br><br>";
+
+    $result = pg_query($query);
     //For now it only shows error message in SQL but does not explain what is causing the error to
     //the users
 
-                if (!$result) {
-                   echo "Email/Username already taken, please try something else!";
-               } else {
-                   echo "Account created successfully, please click on Login Now to login!";
-               }
+    if (!$result) {
+     echo "Email/Username already taken, please try something else!";
+   } else {
+     echo "Account created successfully, please click on Login Now to login!";
+   }
 
-               pg_free_result($result);
-           }
-           ?>
+   pg_free_result($result);
+ }
+ ?>
 
-       </td> </tr>
-       <?php
-       pg_close($dbconn);
-       ?>
-       <tr>
-        <td colspan="2" style="background-color:#6666C1; color:#FFF8DC; text-align:center; margin-top: 10px; padding: 10px"> Copyright &#169; VYMMS
-        </td> </tr>
-    </table>
 
+ <?php
+ pg_close($dbconn);
+ ?>
+
+ <p style="clear:both">Copyright &#169; VYMMS</p>
 </body>
 </html>

@@ -1,52 +1,59 @@
 <html>
-<head> <title>Your Items!</title> </head>
+<head> 
+    <meta charset="utf-8">
+    <title>Your Items!</title>
+    <link href="styles.css" media="all" rel="Stylesheet" type="text/css"/>
+</head>
 <body>
-    <table width="100%" border="0" cellspacing="0.4" cellpadding="0.4">
-        <td style="background-color:#6666C1;">
-            <h1 style="text-align:center; color:#FFF8DC; font-family: "Impact, Charcoal, sans-serif"; ">View items you have put up for rent!</h1>
-        </td> 
+    <div class="sect1">
+        <h1>View items you have put up for rent!</h1>
 
         <?php
-        $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=12345678")
+        $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=postgres")
         or die('Could not connect: ' . pg_last_error());
         ?>
+        <?php
+        ob_start();
+        session_start();
 
+        if ( isset($_SESSION['user'])=="" ) {
+            header("Location: FirstPage.php");
+            exit;
+        }
+        ?>
+
+        <?php
+        $user =  $_SESSION['user']; 
+        $query = "SELECT category, itemname, price FROM object WHERE owner ='".$user."' ";
+        $result = pg_query($query) or die('Query failed: ' . pg_last_error());
+        echo "<table border=\"1\" style=\"width:80%\" align=\"center\">
+        <col width=\"25%\">
+        <col width=\"65%\">
+        <col width=\"10%\">
         <tr>
-            <td style="background-color:#c1c1c1; border:solid;">
+            <th>Category</th>
+            <th>Item Name</th>
+            <th>Price</th>
+        </tr>";
+        while($row = pg_fetch_row($result)){
+            echo "<tr>";
+            echo "<td>" . $row[0] . "</td>";
+            echo "<td>" . $row[1] . "</td>";
+            echo "<td>" . $row[2] . "</td>";
+            echo "</tr>";
+        }
+        echo"</table>";
 
-                <?php
-                $user = 'vesaliE@gmail.com'; 
-                $query = "SELECT category, itemname, price FROM object WHERE owner ='".$user."' ";
-                $result = pg_query($query) or die('Query failed: ' . pg_last_error());
-                echo "<table border=\"1\" >
-                <col width=\"50%\">
-                <col width=\"50%\">
-                <col width=\"50%\">
-                <tr>
-                    <th>Category</th>
-                    <th>Item Name</th>
-                    <th>Price</th>
-                </tr>";
-                while($row = pg_fetch_row($result)){
-                    echo "<tr>";
-                    echo "<td>" . $row[0] . "</td>";
-                    echo "<td>" . $row[1] . "</td>";
-                    echo "<td>" . $row[2] . "</td>";
-                    echo "</tr>";
-                }
-                echo"</table>";
+        pg_free_result($result);
+        ?>
 
-                pg_free_result($result);
-                ?>
+        <?php
+        pg_close($dbconn);
+        ?>
+        <br>
+        Copyright &#169; VYMMS<br>
+        <a href="AccountPage.php">Back to Account Page</a>
+    </div>
 
-            </td> </tr>
-            <?php
-            pg_close($dbconn);
-            ?> 
-            <tr>
-                <td colspan="2" style="background-color:#6666C1; text-align:center;"> Copyright &#169; CS2102 Group 9
-                </td> </tr>
-            </table>
-
-        </body>
-        </html>
+</body>
+</html>

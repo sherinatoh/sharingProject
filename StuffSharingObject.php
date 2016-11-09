@@ -1,39 +1,65 @@
 <html>
-<head> <title>Stuff Sharing Catalog</title> </head>
+<head> 
+    <title>Stuff Sharing Catalog</title> 
+    <link href="styleAddItem.css" media="all" rel="Stylesheet" type="text/css"/>
+</head>
 
 <body>
-    <a href="browsing.php"><button>Go to Browsing Page</button></a>
-    <table>
-        <tr> <td colspan="5" style="background-color:#AAA500;">
-            <h1> Stuff Sharing</h1>
-        </td> </tr>
+   
+    <table >
+   
+   
+         <div class="sect1">
+            <h1>Add Your Item!</h1>
+            </div>
         <?php
         ob_start(); 
         session_start(); 
         
         $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=12345678")
         or die('Could not connect: HERE' . pg_last_error());
-        
+         if ( isset($_SESSION['user'])=="" ) {
+            header("Location: FirstPage.php");
+            exit;
+        }
+
         ?>
 
-        <tr>
-            <td style="background-color:#eeeeee;">
+        
+            <div class="sect2">
+            
                 <form action="upload.php" method="post" enctype="multipart/form-data">
-                    Category: <input type="text" name="category" id="category"><br/>
-                    Item Name: <input type="text" name="itemName" id="itemName"><br/>
-                    Description: <input type="text" name="description" id="description"><br/>
-                    Price: <input type="text" name="price" id="price"><br/>
-                    Location: <input type="text" name="location" id="location"> <br/>
-                    Available Date: <input type="text" name="availableDate" id="availableDate"> <br/>
-                    Availability: <input type="text" name="availability" id="availability"> <br/>
-                    Image: <input type="file" name="fileToUpload" id="fileToUpload">
+                    <div class="sect2">
+                        <input type="text" name="category" id="category" placeholder="Category"><br/>
+                    </div>
+                    <div class="sect2">
+                     <input type="text" name="itemName" id="itemName" placeholder="Item Name"><br/>
+                    </div>
+                    <div class="sect2">
+                        <input type="text" name="description" id="description" placeholder="Description"><br/>
+                    </div>
+                    <div class="sect2">
+                     <input type="text" name="price" id="price" placeholder="Price"><br/>
+                    </div>
+                    <div class="sect2">
+                     <input type="text" name="location" id="location" placeholder="Location"> <br/>
+                    </div>
+                    <div class="sect2">
+                     <input type="text" name="availableDate" id="availableDate" placeholder="Available Date"> <br/>
+                    </div>
+                    <div class="sect2">
+                     <input type="text" name="availability" id="availability" placeholder="Availability"> <br/>
+                    </div>
+                    <div class="sect2">
+                     <input type="file" name="fileToUpload" id="fileToUpload">
+                    </div>
                     <input type="submit" name="formSubmit" value="Add Item!" >
                 </form>
                 <?php
                 if(isset($_GET['formSubmit']))
                 {   
                     $_SESSION['productID'] = $_SESSION['productID'] + 1; 
-                    $query = "INSERT INTO object VALUES('".$_GET['category']."','".$_GET['itemName']."','".$_GET['description']."','".$_GET['price']."','".$_GET['location']."','".$_GET['availableDate']."','".$_GET['availability']."')";
+                    $query = "INSERT INTO object VALUES('".$_GET['category']."','".$_GET['itemName']."','".$_GET['description']."','".$_GET['price']."','".$_GET['location']."','".$_GET['availableDate']."','".$_GET['availability']."', '".$_SESSION['user']."')";
     //echo "<b>SQL:   </b>".$query."<br><br>";
                     $result = pg_query($query) or die('Query failed: ' . pg_last_error());
                     if(!result){
@@ -46,14 +72,13 @@
                 }
                 ?>
 
-            </td> </tr>
             <?php
             pg_close($dbconn);
             ?>
             <tr>
-                <td colspan="2" style="background-color:#FFA500; text-align:center;"> Copyright &#169; CS2102 Project
+                <td> Copyright &#169; VYMMS
                 </td> </tr>
             </table>
-
+             <a href="browsing.php"><button>Go to Browsing Page</button></a>
         </body>
         </html>
