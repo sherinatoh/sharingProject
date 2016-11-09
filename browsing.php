@@ -34,7 +34,7 @@
         <?php
         $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=cs2102")
             or die('Could not connect: ' . pg_last_error());
-        $currObjectID = 20;
+        //$currObjectID = 20;
         ?>
 
         <div class="sect1">
