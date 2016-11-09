@@ -98,7 +98,7 @@
 
             }
             if(isset($_GET['bidSubmit'])){
-                echo "auction ID : ".$_GET['auctionID']."";
+                //echo "auction ID : ".$_GET['auctionID']."";
 
                 $insertQuery = "INSERT INTO bid values('".$_GET['bidPrice']."', '".$_SESSION['user']."', '".$_GET['auctionID']."');";
 
