@@ -16,7 +16,7 @@
         ob_start(); 
         session_start(); 
         
-        $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=12345678")
+        $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=10220911")
         or die('Could not connect: HERE' . pg_last_error());
          if ( isset($_SESSION['user'])=="" ) {
             header("Location: FirstPage.php");
@@ -43,7 +43,6 @@
             $f = fopen($counter_name, "w");
             fwrite($f, $counterVal);
             fclose($f); */
-
         ?>
 
         
@@ -62,15 +61,18 @@
                     <div class="sect3">
                       <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Price:</span> <input style="float:right; display:inline" type="text" name="price" id="price"></label><br/>
                     </div>
-                    <!--div class="sect3">
+                    <div class="sect3">
                       <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Location:</span> <input style="float:right; display:inline" type="text" name="location" id="location"> </label><br/>
-                    </div-->
+                    </div>
+                    <!--
                     <div class="sect3">
                       <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Available Date:</span> <input style="float:right; display:inline" type="text" name="availableDate" id="availableDate"> </label><br/>
                     </div>
+                    
                     <div class="sect3">
                       <label style="color:#2D2D2D; width:250px; display: block"><span style="position:relative;">Availability:</span> <input style="float:right; display:inline" type="text" name="availability" id="availability"></label> <br/>
                     </div>
+                    -->
                     <div class="sect3">
                      <input type="file" name="fileToUpload" id="fileToUpload"><br>
                     </div>
@@ -79,8 +81,9 @@
                 <?php
                 if(isset($_GET['formSubmit']))
                 {   
+                    $date = date('Y-m-d');
                     $_SESSION['productID'] = $_SESSION['productID'] + 1; 
-                    $query = "INSERT INTO object VALUES('".$_GET['category']."','".$_GET['itemName']."','".$_GET['description']."','".$_GET['price']."','".$_GET['location']."','".$_GET['availableDate']."','".$_GET['availability']."', '".$_SESSION['user']."')";
+                    $query = "INSERT INTO object VALUES('".$_GET['category']."','".$_GET['itemName']."','".$_GET['description']."','".$_GET['price']."','".$_GET['location']."','".$date."','".$_GET['availability']."', '".$_SESSION['user']."')";
     //echo "<b>SQL:   </b>".$query."<br><br>";
                     $result = pg_query($query) or die('Query failed: ' . pg_last_error());
                     if(!result){
