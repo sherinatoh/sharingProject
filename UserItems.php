@@ -1,5 +1,8 @@
 <html>
-<head> <title>Your Items!</title> </head>
+<head> 
+    <title>Your Items!</title> 
+    <link href="styles.css" media="all" rel="Stylesheet" type="text/css"/>
+</head>
 <body>
     <table width="100%" border="0" cellspacing="0.4" cellpadding="0.4">
         <td style="background-color:#6666C1;">
@@ -10,12 +13,20 @@
         $dbconn = pg_connect("host=localhost port=5432 dbname=Sharing user=postgres password=12345678")
         or die('Could not connect: ' . pg_last_error());
         ?>
+        <?php
+    ob_start();
+    session_start();
 
+    if ( isset($_SESSION['user'])=="" ) {
+        header("Location: FirstPage.php");
+        exit;
+    }
+?>
         <tr>
-            <td style="background-color:#c1c1c1; border:solid;">
+            <td class="sect3">
 
                 <?php
-                $user = 'vesaliE@gmail.com'; 
+                $user =  $_SESSION['user']; 
                 $query = "SELECT category, itemname, price FROM object WHERE owner ='".$user."' ";
                 $result = pg_query($query) or die('Query failed: ' . pg_last_error());
                 echo "<table border=\"1\" >

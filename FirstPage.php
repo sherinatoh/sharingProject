@@ -1,30 +1,23 @@
 <html>
-<head> <title>WELCOME!</title> </head>
+<head> 
+	<title>WELCOME!</title> 
+	<link href="styles.css" media="all" rel="Stylesheet" type="text/css"/>
+</head>
 
 <body>
-<table>
-<tr> <td colspan="2" style="background-color:#FFA500;">
-<h1> Welcome to Stuff Sharing Services!</h1>
-</td> </tr>
+
+	<h1 class="sect1"> Welcome to VYMMS Services!</h1>
 
 
-<tr>
-<td style="background-color:#eeeeee;">
-<form>
-
-        <h3> Please select Login if you are already registered </h3>
-        <h3> Or Register if you are a new user </h3>
-        <input type="button" value="Login" onClick="document.location.href='Login.php'"/>
-        <input type="button" value="Register" onClick="document.location.href='Register.php'"/>
-</form>
+	<h3 style="font-size:20px"> Please select Login if you are already registered </h3>
+	<h3 style="font-size:20px"> Or Register if you are a new user </h3>
+	<input style="background-color:#6666C1; color:#FFF8DC; padding:5px 10px; border-radius: 12px; font-size:20px; float:left; margin-bottom:10px" type="button" value="Login" onClick="document.location.href='Login.php'"/>
+	<input style="background-color:#6666C1; color:#FFF8DC; padding:5px 10px; border-radius: 12px; font-size:20px; float:left; margin-bottom:50px" type="button" value="Register" onClick="document.location.href='Register.php'"/>
 
 
-</td> </tr>
+	<p style="clear:both">Copyright &#169; VYMMS</p>
 
-<tr>
-<td colspan="2" style="background-color:#FFA500; text-align:center;"> Copyright &#169; CS2102
-</td> </tr>
-</table>
+
 
 </body>
 </html>
