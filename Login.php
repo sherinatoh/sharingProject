@@ -38,11 +38,14 @@
 
 </form>
 -->
-<div class="sect2">
-   <input type="text" name="Email" placeholder="Email" style="margin-top:5px"> <br>
-   <input type="password" name="Password" placeholder="Password" style="margin-top:5px"> <br>
-</div>
+<form>
+    <div class="sect2">
+     <input type="text" name="Email" placeholder="Email" style="margin-top:5px"> <br>
+     <input type="password" name="Password" placeholder="Password" style="margin-top:5px"> <br>
+ </div>
+
  <input type="submit" name="formSubmit" value="Login" >
+</form>
 
 <?php
 
@@ -57,7 +60,7 @@ if(isset($_GET['formSubmit']))
     if (pg_num_rows($result) == 1) {
     	echo "true";
         $_SESSION['user'] = $_GET['Email'];
-        header("Location:Homepage.php");
+        header("Location:AccountPage.php");
     	//Change page
         exit;
     } else {
@@ -73,7 +76,7 @@ if(isset($_GET['formSubmit']))
 pg_close($dbconn);
 ?>
 
- <p style="clear:both">Copyright &#169; VYMMS</p>
+<p style="clear:both">Copyright &#169; VYMMS</p>
 
 </body>
 </html>
