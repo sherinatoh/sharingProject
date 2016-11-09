@@ -102,6 +102,26 @@ insert into auction values ('18',  '2016-12-31', null, '204', 'chicken@gmail.com
 insert into auction values ('19',  '2016-12-31', null, '205', 'moon@gmail.com');
 insert into auction values ('20',  '2016-12-31', null, '206', 'mchen@gmail.com');
 
+insert into bid values('30', 'abc@gmail.com', '01');
+insert into bid values('700', 'abc@gmail.com', '02');
+insert into bid values('655', 'test@gmail.com', '03');
+insert into bid values('200', 'vesaliE@gmail.com', '04');
+insert into bid values('450', 'turtle@gmail.com', '05');
+insert into bid values('900', 'moon@gmail.com', '06');
+insert into bid values('100', 'waow@gmail.com', '07');
+insert into bid values('70', 'abc@gmail.com', '08');
+insert into bid values('20', 'mchen@gmail.com', '09');
+insert into bid values('5', 'alphabet@gmail.com', '10');
+insert into bid values('10', 'mchen@gmail.com', '11');
+insert into bid values('9.99', 'turtle@gmail.com', '12');
+insert into bid values('5', 'moon@gmail.com', '13');
+insert into bid values('1.99', 'yeli@gmail.com', '14');
+insert into bid values('20.99', 'turtle@gmail.com', '15');
+insert into bid values('20.99', 'turtle@gmail.com', '16');
+insert into bid values('9.99', 'waow@gmail.com', '17');
+insert into bid values('5.99', 'chicken@gmail.com', '18');
+insert into bid values('11.99', 'moon@gmail.com', '19');
+insert into bid values('80.99', 'mchen@gmail.com', '20');
 
 insert into loan values ('L0001', '2016-2-26', '2016-3-29', 'yeli@gmail.com', 'test@gmail.com', '011');
 insert into loan values ('L0002', '2016-2-29', '2016-7-9', 'mchen@gmail.com', 'moon@gmail.com', '008' );
